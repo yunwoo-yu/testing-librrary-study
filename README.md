@@ -1,3 +1,10 @@
-# udemy-TESTING-LIBRARY
+# 🚀 udemy-TESTING-LIBRARY
 
-Code to accompany [React Testing Library and Jest](https://www.udemy.com/course/react-testing-library/?couponCode=TEST-LIB-GITHUB) course on Udemy.
+Udemy Testing-Library [테스팅 라이브러리 강의](https://www.udemy.com/course/jest-testing-library/?couponCode=KEEPLEARNING) 를 학습해봤습니다.
+
+### Stack
+
+- React.js
+- @testing-library/jest-dom
+- @testing-library/react
+- jest / vitest
