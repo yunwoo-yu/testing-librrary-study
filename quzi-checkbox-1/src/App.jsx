@@ -5,6 +5,7 @@ function App() {
   const [isChecked, setIsChecked] = useState(false);
   const [buttonColor, setButtonColor] = useState("red");
   const nextColor = buttonColor === "red" ? "blue" : "red";
+  const className = isChecked ? "gray" : buttonColor;
 
   const onClickButton = () => {
     setButtonColor(nextColor);
@@ -13,7 +14,7 @@ function App() {
   return (
     <div>
       <button
-        className={buttonColor}
+        className={className}
         disabled={isChecked}
         onClick={onClickButton}
       >
