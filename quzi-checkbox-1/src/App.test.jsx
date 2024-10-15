@@ -15,7 +15,7 @@ test("button click flow", () => {
   expect(button).toHaveClass("blue");
 });
 
-test("App contains correct heading", () => {
+test("checkbox flow", () => {
   render(<App />);
 
   const button = screen.getByRole("button", { name: /blue/i });
@@ -26,7 +26,23 @@ test("App contains correct heading", () => {
 
   fireEvent.click(checkbox);
   expect(button).toBeDisabled();
+  expect(button).toHaveClass("gray");
 
   fireEvent.click(checkbox);
   expect(button).toBeEnabled();
+  expect(button).toHaveClass("red");
+});
+
+test("checkBox flow after button click", () => {
+  render(<App />);
+
+  const button = screen.getByRole("button", { name: /blue/i });
+  const checkbox = screen.getByRole("checkbox", { name: /disable button/i });
+
+  fireEvent.click(button);
+  expect(button).toHaveClass("blue");
+
+  fireEvent.click(checkbox);
+  expect(button).toBeDisabled();
+  expect(button).toHaveClass("gray");
 });
