@@ -1,5 +1,6 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, toBe } from "@testing-library/react";
 import App from "./App";
+import { kebabCaseToTitleCase } from "./helpers";
 
 test("button click flow", () => {
   render(<App />);
@@ -45,4 +46,16 @@ test("checkBox flow after button click", () => {
   fireEvent.click(checkbox);
   expect(button).toBeDisabled();
   expect(button).toHaveClass("gray");
+});
+
+describe("kebabCaseToTitleCase", () => {
+  test("works for no hyphens", () => {
+    expect(kebabCaseToTitleCase("red")).toBe("Red");
+  });
+  test("works for one hyphens", () => {
+    expect(kebabCaseToTitleCase("midnight-blue")).toBe("Midnight Blue");
+  });
+  test("works for multiple hyphens", () => {
+    expect(kebabCaseToTitleCase("medium-violet-red")).toBe("Medium Violet Red");
+  });
 });
