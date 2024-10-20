@@ -5,7 +5,7 @@ import { kebabCaseToTitleCase } from "./helpers";
 test("button click flow", () => {
   render(<App />);
 
-  const button = screen.getByRole("button", { name: /midnight-blue/i });
+  const button = screen.getByRole("button", { name: /blue/i });
 
   expect(button).toHaveClass("medium-violet-red");
 
@@ -19,7 +19,7 @@ test("button click flow", () => {
 test("checkbox flow", () => {
   render(<App />);
 
-  const button = screen.getByRole("button", { name: /midnight-blue/i });
+  const button = screen.getByRole("button", { name: /blue/i });
   const checkbox = screen.getByRole("checkbox", { name: /disable button/i });
 
   expect(button).toBeEnabled();
@@ -37,7 +37,7 @@ test("checkbox flow", () => {
 test("checkBox flow after button click", () => {
   render(<App />);
 
-  const button = screen.getByRole("button", { name: /midnight-blue/i });
+  const button = screen.getByRole("button", { name: /blue/i });
   const checkbox = screen.getByRole("checkbox", { name: /disable button/i });
 
   fireEvent.click(button);
