@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 export default function SummaryForm() {
   const [tcChecked, setTcChecked] = useState(false);
