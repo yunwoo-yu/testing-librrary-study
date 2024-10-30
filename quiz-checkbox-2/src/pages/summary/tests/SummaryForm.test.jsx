@@ -36,3 +36,13 @@ test("체크박스를 체크하면 버튼이 활성화 되고 해제하면 비�
 
   expect(button).toBeDisabled();
 });
+
+test("호버 시 팝오버가 나타나고 사라진다.", async () => {
+  const user = userEvent.setup();
+  render(<SummaryForm />);
+
+  const nullPopover = screen.queryByText(
+    /no ice cream will actually be delivered/i
+  );
+  expect(nullPopover).not.toBeInTheDocument();
+});
