@@ -1,8 +1,8 @@
 import { http, HttpResponse } from "msw";
 
 export const handlers = [
-  http.get("http://localhost:3030/scoops", () => {
-    return new HttpResponse.json([
+  http.get("http://localhost:3030/scoops", async () => {
+    return HttpResponse.json([
       {
         name: "Chocolate",
         imagePath: "/images/chocolate.png",
