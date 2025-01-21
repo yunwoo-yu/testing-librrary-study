@@ -17,3 +17,21 @@ test("아이스크림 종류 별로 이미지를 표시한다.", async () => {
   // 이미지의 alt text가 일치하는지 확인한다.
   expect(altText).toEqual(["Chocolate scoops", "Vanilla scoops"]);
 });
+
+test("아이스크림 토핑을 종류 별로 표시한다", async () => {
+  render(<Options optionType="toppings" />);
+
+  const toppingImages = await screen.findAllByRole("img", {
+    name: /topping$/i,
+  });
+
+  expect(toppingImages).toHaveLength(3);
+
+  const altText = toppingImages.map((el) => el.alt);
+
+  expect(altText).toEqual([
+    "Cherries topping",
+    "M&Ms topping",
+    "Hot fudge topping",
+  ]);
+});
