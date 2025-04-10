@@ -3,19 +3,25 @@ import axios from "axios";
 import ScoopOption from "./ScoopOption";
 import Row from "react-bootstrap/Row";
 import ToppingOption from "./ToppingOption";
+import AlertBanner from "../common/AlertBanner";
 
 const Options = ({ optionType }) => {
   const [items, setItems] = useState([]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     axios
       .get(`http://localhost:3030/${optionType}`)
       .then((res) => setItems(res.data))
       .catch((error) => {
-        // 에러처리는 나중에처리
-        console.log(error);
+        setError(true);
       });
   }, [optionType]);
+
+  if (error) {
+    // @ts-ignore
+    return <AlertBanner />;
+  }
 
   // 토핑 옵션 생성 후 null 변경
   const ItemComponent = optionType === "scoops" ? ScoopOption : ToppingOption;
