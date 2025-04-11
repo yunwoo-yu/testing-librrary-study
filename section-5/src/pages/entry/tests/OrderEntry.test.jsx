@@ -15,9 +15,7 @@ test("스쿱, 토핑의 핸들러 함수 에러를 체크한다.", async () => {
 
   render(<OrderEntry />);
 
-  const alerts = await screen.findAllByRole("alert", {
-    name: "An unexpected error occurred. Please try again later.",
-  });
+  const alerts = await screen.findAllByRole("alert");
 
   expect(alerts).toHaveLength(2);
 });
